@@ -3,6 +3,7 @@ package com.henleylee.lockpattern.demo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -33,6 +34,7 @@ public class PatternCheckActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pattern_locker);
+        Utility.initActionBar(getSupportActionBar());
 
         password = Utility.getPatternPassword(this);
 
@@ -60,6 +62,15 @@ public class PatternCheckActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void handlePatternPassword(int side, List<Cell> cells) {

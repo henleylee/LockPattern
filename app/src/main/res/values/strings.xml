@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LockPattern</string>
+
+    <string name="pattern_create">设置手势密码</string>
+    <string name="pattern_check">验证手势密码</string>
+
 </resources>

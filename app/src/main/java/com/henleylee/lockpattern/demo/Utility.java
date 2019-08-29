@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 
 /**
  * Toast工具类
@@ -33,6 +34,18 @@ public class Utility {
             sToast.setText(text);
         }
         sToast.show();
+    }
+
+    /**
+     * 初始化ActionBar
+     */
+    public static void initActionBar(ActionBar actionBar) {
+        if (actionBar != null) {
+            actionBar.setDisplayShowTitleEnabled(true);     // 设置是否标题/副标题(默认为true)
+            actionBar.setHomeButtonEnabled(true);           // 设置是否启用左侧的图标是否可以点击(默认为false)
+            actionBar.setDisplayShowHomeEnabled(true);      // 设置是否显示应用程序图标(默认为true)
+            actionBar.setDisplayHomeAsUpEnabled(true);      // 设置是否给左侧添加一个返回的图标(默认为false)
+        }
     }
 
     public static String getPatternPassword(@NonNull Context context) {
