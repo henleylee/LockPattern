@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.henleylee.lockpattern.Cell;
+import com.henleylee.lockpattern.CellStatus;
 import com.henleylee.lockpattern.OnPatternChangedListener;
 import com.henleylee.lockpattern.PatternHelper;
 import com.henleylee.lockpattern.PatternIndicatorView;
@@ -72,6 +73,8 @@ public class PatternCreateActivity extends AppCompatActivity {
     private void handlePatternPassword(int side, List<Cell> cells) {
         if (TextUtils.isEmpty(password)) {
             if (cells == null || cells.size() < 4) {
+                lockerView.setPatternStatus(CellStatus.ERROR);
+                indicatorView.setSelectedCells(cells);
                 tvMessage.setTextColor(Color.RED);
                 tvMessage.setText("最少连接" + MIN_PASSWORD_LENGTH + "个点，请重新绘制");
                 return;
@@ -82,6 +85,8 @@ public class PatternCreateActivity extends AppCompatActivity {
             tvMessage.setText("再次绘制解锁图案");
         } else {
             if (!TextUtils.equals(password, PatternHelper.patternToString(side, cells))) {
+                lockerView.setPatternStatus(CellStatus.ERROR);
+                indicatorView.setSelectedCells(cells);
                 tvMessage.setTextColor(Color.RED);
                 tvMessage.setText("与上一次绘制不一致，请重新绘制");
                 return;

@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.henleylee.lockpattern.Cell;
+import com.henleylee.lockpattern.CellStatus;
 import com.henleylee.lockpattern.OnPatternChangedListener;
 import com.henleylee.lockpattern.PatternHelper;
 import com.henleylee.lockpattern.PatternIndicatorView;
@@ -74,9 +75,10 @@ public class PatternCheckActivity extends AppCompatActivity {
     }
 
     private void handlePatternPassword(int side, List<Cell> cells) {
-        indicatorView.setSelectedCells(cells);
         if (!TextUtils.equals(password, PatternHelper.patternToString(side, cells))) {
             retryCount--;
+            lockerView.setPatternStatus(CellStatus.ERROR);
+            indicatorView.setSelectedCells(cells);
             tvMessage.setTextColor(Color.RED);
             if (retryCount > 0) {
                 tvMessage.setText("密码错误，还可以再输入" + retryCount + "次");
@@ -86,6 +88,7 @@ public class PatternCheckActivity extends AppCompatActivity {
             }
             return;
         }
+        indicatorView.setSelectedCells(cells);
         Utility.showToast(this, "密码正确");
         finish();
     }
