@@ -49,11 +49,11 @@ public class PatternLockerView extends View {
 
     /** 终点X坐标 */
     private float endX = 0f;
-
     /** 终点Y坐标 */
     private float endY = 0f;
     /** 记录绘制多少个{@link Cell}，用于判断是否调用{@link OnPatternChangedListener} */
     private int hitSize = 0;
+
     /** 真正的{@link Cell}集合 */
     private List<Cell> mCells = new ArrayList<>();
     /** 选中的{@link Cell}集合 */
@@ -61,7 +61,12 @@ public class PatternLockerView extends View {
     /** 手势解锁监听 */
     private OnPatternChangedListener mPatternChangedListener = null;
     /** 清除绘制路径的{@link Runnable} */
-    private Runnable mClearPatternRunnable = this::clearPattern;
+    private Runnable mClearPatternRunnable = new Runnable() {
+        @Override
+        public void run() {
+            clearPattern();
+        }
+    };
 
     public PatternLockerView(Context context) {
         this(context, null);

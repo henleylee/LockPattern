@@ -14,7 +14,7 @@ import java.util.List;
  * @author Henley
  * @since 2019/8/26 16:53
  */
-public interface ICellStyle extends IStyle {
+public interface ICellStyle {
 
     /**
      * 绘制正常情况下（即未设置的）每个图案的样式

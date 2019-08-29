@@ -24,7 +24,7 @@ public class DefaultIndicatorLinkedLineStyle implements ILinkedLineStyle {
 
     public DefaultIndicatorLinkedLineStyle(DecoratorStyle style) {
         this.style = style;
-        this.paint = createPaint();
+        this.paint = StyleHelper.createPaint();
         this.paint.setStyle(Paint.Style.STROKE);
     }
 

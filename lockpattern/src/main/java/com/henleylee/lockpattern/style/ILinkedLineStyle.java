@@ -14,7 +14,7 @@ import java.util.List;
  * @author Henley
  * @since 2019/8/26 16:51
  */
-public interface ILinkedLineStyle extends IStyle {
+public interface ILinkedLineStyle {
 
     /**
      * 绘制图案密码连接线

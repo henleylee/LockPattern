@@ -24,7 +24,7 @@ public class DefaultLockerCellStyle implements ICellStyle {
 
     public DefaultLockerCellStyle(DecoratorStyle style) {
         this.style = style;
-        this.paint = createPaint();
+        this.paint = StyleHelper.createPaint();
         this.paint.setStyle(Paint.Style.FILL);
     }
 
