@@ -15,6 +15,8 @@ import com.henleylee.lockpattern.OnPatternChangedListener;
 import com.henleylee.lockpattern.PatternHelper;
 import com.henleylee.lockpattern.PatternIndicatorView;
 import com.henleylee.lockpattern.PatternLockerView;
+import com.henleylee.lockpattern.style.ArrowLockerLinkedLineStyle;
+import com.henleylee.lockpattern.style.RippleLockerCellStyle;
 
 import java.util.List;
 
@@ -39,6 +41,8 @@ public class PatternCreateActivity extends AppCompatActivity {
         tvMessage = findViewById(R.id.pattern_message);
         indicatorView = findViewById(R.id.pattern_indicator_view);
         lockerView = findViewById(R.id.pattern_locker_view);
+        lockerView.setCellStyle(new RippleLockerCellStyle(lockerView.getDecoratorStyle()));
+        lockerView.setLinkedLineStyle(new ArrowLockerLinkedLineStyle(lockerView.getDecoratorStyle()));
         lockerView.setOnPatternChangedListener(new OnPatternChangedListener() {
             @Override
             public void onPatternStart() {
@@ -71,6 +75,7 @@ public class PatternCreateActivity extends AppCompatActivity {
     }
 
     private void handlePatternPassword(int side, List<Cell> cells) {
+        lockerView.setPatternStatus(CellStatus.ERROR);
         if (TextUtils.isEmpty(password)) {
             if (cells == null || cells.size() < 4) {
                 lockerView.setPatternStatus(CellStatus.ERROR);

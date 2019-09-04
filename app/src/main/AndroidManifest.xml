@@ -25,6 +25,10 @@
             android:name=".PatternCheckActivity"
             android:label="@string/pattern_check"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".PatternSettingActivity"
+            android:label="@string/pattern_setting"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

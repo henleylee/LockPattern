@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.pattern_create).setOnClickListener(this);
         findViewById(R.id.pattern_check).setOnClickListener(this);
+        findViewById(R.id.pattern_setting).setOnClickListener(this);
     }
 
     @Override
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.pattern_check:
                 startActivity(new Intent(this, PatternCheckActivity.class));
+                break;
+            case R.id.pattern_setting:
+                startActivity(new Intent(this, PatternSettingActivity.class));
                 break;
             default:
                 break;
